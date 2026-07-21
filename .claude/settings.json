@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Airtable__*",
+      "mcp__Gmail__*",
+      "mcp__Notion__*",
+      "mcp__Google_Drive__*",
+      "mcp__Google_Calendar__*",
+      "mcp__Gamma__*",
+      "mcp__Miro__*",
+      "mcp__Lucid__*"
+    ]
+  }
+}
