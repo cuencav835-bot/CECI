@@ -78,8 +78,20 @@ def ambient_music(dur, bpm=88):
     return mix.astype(np.float32)
 
 def tts(text, name):
-    p=f"{TMP}/{name}.mp3"
-    gTTS(text=text, lang="es", tld="com.mx", slow=False).save(p)
+    # gTTS blocked by proxy — generate silent placeholder with same duration estimate
+    # (approx 130 words/min for Spanish speech)
+    words = len(text.split())
+    dur = max(3.0, words / 130 * 60)
+    p = f"{TMP}/{name}.wav"
+    SR = 44100
+    silence = np.zeros(int(dur * SR), dtype=np.float32)
+    import wave, struct
+    with wave.open(p, 'w') as wf:
+        wf.setnchannels(1)
+        wf.setsampwidth(2)
+        wf.setframerate(SR)
+        wf.writeframes(struct.pack(f'<{len(silence)}h',
+                       *np.clip(silence * 32767, -32767, 32767).astype(np.int16)))
     return p
 
 # ── Frames animados ───────────────────────────────────────────────────
