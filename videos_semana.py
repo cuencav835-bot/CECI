@@ -49,7 +49,7 @@ def add_noise(img, s=5):
 def ambient_music(dur, bpm=88):
     t = np.linspace(0, dur, int(SR*dur), endpoint=False)
     beat = 60/bpm
-    chords = [[220,.261.63,329.63],[261.63,329.63,392],[174.61,220,261.63],[196,246.94,293.66]]
+    chords = [[220,261.63,329.63],[261.63,329.63,392],[174.61,220,261.63],[196,246.94,293.66]]
     pad = np.zeros_like(t)
     bar = beat*4
     bars = int(np.ceil(dur/bar))
@@ -190,8 +190,10 @@ def make_outro_frames(cta_line1, cta_line2, accent, fps=30, dur=10):
     return frames
 
 def frames_to_clip(frames, fps=30):
-    return ImageClip(lambda t: frames[min(int(t*fps), len(frames)-1)],
-                     duration=len(frames)/fps)
+    from moviepy import VideoClip
+    dur = len(frames) / fps
+    return VideoClip(make_frame=lambda t: frames[min(int(t*fps), len(frames)-1)],
+                     duration=dur)
 
 # ── Video principal crop ──────────────────────────────────────────────
 print("📹 Cargando video base...")
