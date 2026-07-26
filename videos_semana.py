@@ -192,7 +192,7 @@ def make_outro_frames(cta_line1, cta_line2, accent, fps=30, dur=10):
 def frames_to_clip(frames, fps=30):
     from moviepy import VideoClip
     dur = len(frames) / fps
-    return VideoClip(make_frame=lambda t: frames[min(int(t*fps), len(frames)-1)],
+    return VideoClip(frame_function=lambda t: frames[min(int(t*fps), len(frames)-1)],
                      duration=dur)
 
 # ── Video principal crop ──────────────────────────────────────────────
