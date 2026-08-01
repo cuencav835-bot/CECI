@@ -1,0 +1,80 @@
+{
+  "name": "VeroResina - Publicación Automática Facebook",
+  "description": "Flujo n8n para automatizar publicaciones diarias en las 3 páginas de Facebook sobre resina epóxica",
+  "nodes": [
+    {
+      "name": "Disparador Diario",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "note": "Se activa todos los días a las 10am hora México (UTC-6)",
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 16 * * *" }]
+        }
+      }
+    },
+    {
+      "name": "Obtener día de la semana",
+      "type": "n8n-nodes-base.code",
+      "note": "Determina qué contenido publicar según el día",
+      "parameters": {
+        "jsCode": "const dias = {\n  1: { dia: 'Lunes', tema: 'Inspiración', hashtags: '#ResInaEpoxica #ArteConResina #EmprendimientoFemenino #NegocioDesdeHouse #VeroResina' },\n  2: { dia: 'Martes', tema: 'Tips', hashtags: '#TipsDeResina #ResInaEpoxica #ArtesaniasMexicanas #AprendeResina #VeroResina' },\n  3: { dia: 'Miércoles', tema: 'Técnica', hashtags: '#TecnicasDeResina #CursoResina #AprenderDessdeCero #VeroResina #ResInaEpoxica' },\n  4: { dia: 'Jueves', tema: 'Dinero', hashtags: '#GanarDineroDesddeCasa #NegocioResina #EmprendedoraMexicana #IngresoExtra #VeroResina' },\n  5: { dia: 'Viernes', tema: 'Ventas', hashtags: '#VenderResina #NegocioOnline #EmprendimientoFemenino #VeroResina #ResInaEpoxica' },\n  6: { dia: 'Sábado', tema: 'Tutorial', hashtags: '#TutorialResina #AprendeConmigo #HazloTuMisma #VeroResina #CursoResina' },\n  0: { dia: 'Domingo', tema: 'Comunidad', hashtags: '#ComunidadResinera #JuntasSomosMás #VeroResina #ResInaEpoxica #Artesanas' }\n};\nconst hoy = new Date().getDay();\nreturn [{ json: dias[hoy] }];"
+      }
+    },
+    {
+      "name": "Publicar en VeroResina",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "note": "Publica en la página @VeroResina con video del día y caption personalizado",
+      "parameters": {
+        "graphApiVersion": "v18.0",
+        "node": "{{PAGE_ID_VERORESINA}}",
+        "method": "POST",
+        "endpoint": "/videos",
+        "options": {
+          "caption": "🎨 ¡{{ $json.dia }} de {{ $json.tema }}! ✨\n\n¿Quieres aprender a crear piezas únicas de resina epóxica y generar ingresos desde casa?\n\n👉 El curso completo está esperándote: https://go.hotmart.com/G106175870D?ap=8534\n\n{{ $json.hashtags }}"
+        }
+      }
+    },
+    {
+      "name": "Publicar en RPResina",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "note": "Misma publicación en @RPResina",
+      "parameters": {
+        "graphApiVersion": "v18.0",
+        "node": "{{PAGE_ID_RPRESINA}}",
+        "method": "POST",
+        "endpoint": "/videos"
+      }
+    },
+    {
+      "name": "Publicar en PXResina",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "note": "Misma publicación en @PXResina",
+      "parameters": {
+        "graphApiVersion": "v18.0",
+        "node": "{{PAGE_ID_PXRESINA}}",
+        "method": "POST",
+        "endpoint": "/videos"
+      }
+    },
+    {
+      "name": "Notificación WhatsApp",
+      "type": "n8n-nodes-base.httpRequest",
+      "note": "Te avisa por WhatsApp cuando se publicó todo correctamente",
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.whatsapp.com/send",
+        "body": "✅ Publicación del {{ $json.dia }} completada en las 3 páginas.\nTema: {{ $json.tema }}\nHotmart: https://go.hotmart.com/G106175870D?ap=8534"
+      }
+    }
+  ],
+  "instrucciones_configuracion": {
+    "paso_1": "Ve a n8n.io → Crea cuenta gratuita (o instala en tu servidor)",
+    "paso_2": "Importa este archivo JSON en n8n: Menú → Import from File",
+    "paso_3": "Configura las credenciales de Facebook: Settings → Credentials → Add → Facebook Graph API",
+    "paso_4": "Reemplaza PAGE_ID_VERORESINA, PAGE_ID_RPRESINA, PAGE_ID_PXRESINA con los IDs reales de tus páginas",
+    "paso_5": "Sube los videos a un servidor accesible (Google Drive con enlace público) y conecta la URL",
+    "paso_6": "Activa el flujo y se publicará automáticamente cada día a las 10am",
+    "hotmart_link": "https://go.hotmart.com/G106175870D?ap=8534",
+    "paginas": ["@VeroResina", "@RPResina", "@PXResina"]
+  }
+}
