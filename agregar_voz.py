@@ -370,8 +370,9 @@ def procesar(cfg):
         voz_end = total_samples
     voz_padded[voz_start:voz_end] = voz_arr
 
-    voz_timed = AudioArrayClip(voz_padded, fps=SR)
-    audio_final = CompositeAudioClip([music, voz_timed])
+    voz_timed = AudioArrayClip(voz_padded, fps=SR).with_duration(final_video.duration)
+    music_dur  = music.with_duration(final_video.duration)
+    audio_final = CompositeAudioClip([music_dur, voz_timed]).with_duration(final_video.duration)
 
     final = final_video.with_audio(audio_final)
 
