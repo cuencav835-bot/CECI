@@ -312,8 +312,8 @@ def procesar(cfg):
     # Si la voz es más larga que el video, loop el video
     if voz_dur > dur:
         loops = math.ceil(voz_dur / dur)
-        from moviepy import concatenate_videoclips
-        clip = concatenate_videoclips([clip]*loops).subclipped(0, voz_dur)
+            from moviepy import concatenate_videoclips as _concat
+        clip = _concat([clip]*loops).subclipped(0, voz_dur)
     else:
         clip = clip.subclipped(0, dur)
 
