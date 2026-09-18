@@ -1,0 +1,115 @@
+:host {
+  display: block;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.volver {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+h1 {
+  margin-bottom: 0.25rem;
+}
+
+.ayuda {
+  color: #6b7280;
+  margin-top: 0;
+  line-height: 1.5;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+input {
+  font: inherit;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+}
+
+button[type='submit'] {
+  background: #2563eb;
+  color: white;
+}
+
+button[type='submit']:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+
+.resultados h2 {
+  margin-bottom: 0.25rem;
+}
+
+.nota {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-top: 0;
+}
+
+.post {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.gancho {
+  font-weight: 700;
+}
+
+.cta {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.hashtags {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.copiar {
+  background: #f1f5f9;
+  color: #111827;
+  margin-top: 0.5rem;
+}
+
+.secundario {
+  background: transparent;
+  border: 1px dashed #93c5fd;
+  color: #2563eb;
+  width: 100%;
+}

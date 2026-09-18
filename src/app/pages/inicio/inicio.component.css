@@ -1,0 +1,89 @@
+.hero {
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.subtitulo {
+  max-width: 640px;
+  margin: 0 auto;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.explicacion {
+  max-width: 640px;
+  margin: 1.5rem auto;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+}
+
+.explicacion h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.explicacion ol {
+  padding-left: 1.25rem;
+  line-height: 1.7;
+}
+
+.nota {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 0;
+}
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.tarjeta:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.icono {
+  font-size: 2rem;
+}
+
+.tarjeta h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.tarjeta p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.boton {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #2563eb;
+}
