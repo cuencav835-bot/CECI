@@ -20,12 +20,14 @@ export interface DatosCuento {
   personaje: string;
   moraleja: string;
   duracion: '5' | '10' | '15';
+  fraseApertura: string;
 }
 
 export interface EscenaCuento {
   nombre: string;
   texto: string;
   imagenSugerida: string;
+  duracionEstimadaSegundos: number;
 }
 
 export interface GuionCuento {
@@ -99,16 +101,26 @@ export class GeneradorService {
     return 8;
   }
 
-  generarGuionCuento(datos: DatosCuento): GuionCuento {
-    const escenas: EscenaCuento[] = [];
+  private duracionSegundos(texto: string): number {
+    const palabras = texto.trim().split(/\s+/).length;
+    const palabrasPorSegundo = 2.3;
+    return Math.max(3, Math.ceil(palabras / palabrasPorSegundo));
+  }
 
-    escenas.push({
-      nombre: 'Gancho inicial (primeros 15 segundos)',
-      texto: `¡Hola, amiguitos! Hoy les voy a contar la historia de ${datos.personaje}, y les prometo que el final los va a sorprender. ¿Están listos? ¡Vamos con "${datos.titulo}"!`,
+  generarGuionCuento(datos: DatosCuento): GuionCuento {
+    type EscenaSinDuracion = Omit<EscenaCuento, 'duracionEstimadaSegundos'>;
+    const crudas: EscenaSinDuracion[] = [];
+
+    const gancho = datos.fraseApertura.trim() ||
+      `¡Hola, amiguitos! Hoy les voy a contar la historia de ${datos.personaje}, y les prometo que el final los va a sorprender. ¿Están listos? ¡Vamos con "${datos.titulo}"!`;
+
+    crudas.push({
+      nombre: 'Gancho inicial (grábalo primero, es lo primero que ven)',
+      texto: gancho,
       imagenSugerida: `Imagen colorida y alegre de ${datos.personaje} saludando directo a la cámara, fondo llamativo.`
     });
 
-    escenas.push({
+    crudas.push({
       nombre: 'Presentación del personaje',
       texto: `${datos.personaje} vivía tranquilo en su hogar, hasta que un día pasó algo que cambiaría todo.`,
       imagenSugerida: `${datos.personaje} en su lugar habitual (casa, bosque, ciudad), mostrando su rutina normal.`
@@ -116,30 +128,35 @@ export class GeneradorService {
 
     const totalDesarrollo = this.duracionAEscenas(datos.duracion) - 4;
     for (let i = 1; i <= totalDesarrollo; i++) {
-      escenas.push({
+      crudas.push({
         nombre: `Desarrollo de la historia (parte ${i})`,
         texto: `${datos.personaje} se encontró con un nuevo desafío. Tuvo que pensar, ser valiente y no rendirse para seguir adelante.`,
         imagenSugerida: `Escena de acción o descubrimiento con ${datos.personaje} enfrentando el desafío, expresión de esfuerzo o sorpresa.`
       });
     }
 
-    escenas.push({
+    crudas.push({
       nombre: 'Clímax (el momento más emocionante)',
       texto: `Justo cuando parecía que todo se complicaba, ${datos.personaje} encontró la manera de resolverlo, usando lo que había aprendido en el camino.`,
       imagenSugerida: `Primer plano de ${datos.personaje} con cara de determinación, luz brillante o efecto especial de "momento importante".`
     });
 
-    escenas.push({
+    crudas.push({
       nombre: 'Resolución y moraleja',
       texto: `Al final, todo se solucionó. Y ${datos.personaje} aprendió algo muy importante: ${datos.moraleja}.`,
       imagenSugerida: `${datos.personaje} sonriendo, rodeado de amigos o en su hogar, ambiente cálido y feliz.`
     });
 
-    escenas.push({
+    crudas.push({
       nombre: 'Cierre y llamada a la acción',
       texto: `Y así termina la historia de hoy. Cuéntanos en los comentarios qué habrías hecho tú en el lugar de ${datos.personaje}. Si te gustó, dale like, suscríbete y activa la campanita para más cuentos como este. ¡Nos vemos en el próximo video!`,
       imagenSugerida: `Texto en pantalla "SUSCRÍBETE" con animación, personaje despidiéndose con la mano.`
     });
+
+    const escenas: EscenaCuento[] = crudas.map((e) => ({
+      ...e,
+      duracionEstimadaSegundos: this.duracionSegundos(e.texto)
+    }));
 
     return { titulo: datos.titulo, escenas };
   }
