@@ -16,7 +16,8 @@ export class AgenteCuentosComponent {
     titulo: '',
     personaje: '',
     moraleja: '',
-    duracion: '10'
+    duracion: '10',
+    fraseApertura: ''
   };
 
   guion: GuionCuento | null = null;
@@ -38,9 +39,14 @@ export class AgenteCuentosComponent {
   textoCompleto(): string {
     if (!this.guion) return '';
     const partes = this.guion.escenas.map(
-      (e) => `## ${e.nombre}\n${e.texto}\n(Imagen sugerida: ${e.imagenSugerida})`
+      (e) => `## ${e.nombre} (~${e.duracionEstimadaSegundos} seg)\n${e.texto}\n(Imagen sugerida: ${e.imagenSugerida})`
     );
     return `# ${this.guion.titulo}\n\n${partes.join('\n\n')}`;
+  }
+
+  get duracionTotalSegundos(): number {
+    if (!this.guion) return 0;
+    return this.guion.escenas.reduce((total, e) => total + e.duracionEstimadaSegundos, 0);
   }
 
   copiar(): void {

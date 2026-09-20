@@ -2,9 +2,20 @@
 
 <h1>📖 Agente de Cuentos para YouTube</h1>
 <p class="ayuda">
-  Cuéntame la idea de tu cuento y te preparo el guion completo, dividido en escenas,
-  con una sugerencia de imagen para cada parte del video.
+  Cuéntame la idea de tu cuento y te preparo el guion completo, dividido en partes cortas
+  para que grabes tu propia voz en cada una.
 </p>
+
+<details class="guia">
+  <summary>🎬 ¿Cómo armo el video con esto? (clic para ver los pasos)</summary>
+  <ol>
+    <li>Descarga la app gratis <strong>CapCut</strong> (Android o iPhone).</li>
+    <li>Crea un proyecto nuevo y agrega la primera imagen sugerida.</li>
+    <li>Usa el botón de "Voz en off" / micrófono y graba esa parte del texto.</li>
+    <li>Cambia de imagen y graba la siguiente parte. Repite hasta terminar.</li>
+    <li>Exporta el video y súbelo a YouTube.</li>
+  </ol>
+</details>
 
 <form class="formulario" (ngSubmit)="generar()">
   <label>
@@ -34,17 +45,26 @@
     </select>
   </label>
 
+  <label>
+    Frase de apertura (opcional, si ya tienes una escrita)
+    <input type="text" name="fraseApertura" [(ngModel)]="datos.fraseApertura"
+      placeholder='Ej: "Hola, amiguitos. Hoy vamos a contar un cuento..."' />
+  </label>
+
   <button type="submit" [disabled]="!formularioValido">Generar guion</button>
 </form>
 
 <section *ngIf="guion" class="resultados">
   <h2>{{ guion.titulo }}</h2>
-  <p class="nota">Este guion ya está dividido en escenas. Cada una trae una idea de imagen para grabar o animar.</p>
+  <p class="nota">
+    Graba tu voz por partes: cada tarjeta de abajo es un audio corto que grabas por separado en CapCut
+    (u otra app), mostrando la imagen sugerida mientras hablas. Duración total estimada: ~{{ duracionTotalSegundos }} segundos.
+  </p>
 
-  <article class="escena" *ngFor="let escena of guion.escenas">
-    <h3>{{ escena.nombre }}</h3>
-    <p>{{ escena.texto }}</p>
-    <p class="imagen">🖼️ Imagen sugerida: {{ escena.imagenSugerida }}</p>
+  <article class="escena" *ngFor="let escena of guion.escenas; let i = index">
+    <h3>{{ i + 1 }}. {{ escena.nombre }} — ~{{ escena.duracionEstimadaSegundos }} seg</h3>
+    <p class="texto-grabar">🎙️ "{{ escena.texto }}"</p>
+    <p class="imagen">🖼️ Imagen mientras grabas: {{ escena.imagenSugerida }}</p>
   </article>
 
   <button class="copiar" (click)="copiar()">
