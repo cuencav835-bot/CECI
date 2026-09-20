@@ -1,0 +1,54 @@
+<a routerLink="/" class="volver">← Volver al inicio</a>
+
+<h1>📖 Agente de Cuentos para YouTube</h1>
+<p class="ayuda">
+  Cuéntame la idea de tu cuento y te preparo el guion completo, dividido en escenas,
+  con una sugerencia de imagen para cada parte del video.
+</p>
+
+<form class="formulario" (ngSubmit)="generar()">
+  <label>
+    Título del cuento
+    <input type="text" name="titulo" [(ngModel)]="datos.titulo"
+      placeholder="Ej: El conejito que no quería compartir" required />
+  </label>
+
+  <label>
+    Personaje principal
+    <input type="text" name="personaje" [(ngModel)]="datos.personaje"
+      placeholder="Ej: Coni, el conejito curioso" required />
+  </label>
+
+  <label>
+    ¿Qué enseñanza o moraleja deja el cuento?
+    <input type="text" name="moraleja" [(ngModel)]="datos.moraleja"
+      placeholder="Ej: compartir nos hace más felices" required />
+  </label>
+
+  <label>
+    Duración aproximada del video
+    <select name="duracion" [(ngModel)]="datos.duracion">
+      <option value="5">5 minutos</option>
+      <option value="10">10 minutos</option>
+      <option value="15">15 minutos</option>
+    </select>
+  </label>
+
+  <button type="submit" [disabled]="!formularioValido">Generar guion</button>
+</form>
+
+<section *ngIf="guion" class="resultados">
+  <h2>{{ guion.titulo }}</h2>
+  <p class="nota">Este guion ya está dividido en escenas. Cada una trae una idea de imagen para grabar o animar.</p>
+
+  <article class="escena" *ngFor="let escena of guion.escenas">
+    <h3>{{ escena.nombre }}</h3>
+    <p>{{ escena.texto }}</p>
+    <p class="imagen">🖼️ Imagen sugerida: {{ escena.imagenSugerida }}</p>
+  </article>
+
+  <button class="copiar" (click)="copiar()">
+    {{ copiado ? '✅ Copiado' : '📋 Copiar guion completo' }}
+  </button>
+  <button class="secundario" (click)="generar()">🔄 Generar otra versión del cuento</button>
+</section>

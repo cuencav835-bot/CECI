@@ -1,0 +1,58 @@
+<a routerLink="/" class="volver">← Volver al inicio</a>
+
+<h1>🛒 Agente de Ventas para Facebook</h1>
+<p class="ayuda">
+  Cuéntame sobre el producto que promocionas en Hotmart y te preparo 5 publicaciones
+  distintas, listas para pegar en tu página de Facebook.
+</p>
+
+<form class="formulario" (ngSubmit)="generar()">
+  <label>
+    Nombre del producto
+    <input type="text" name="producto" [(ngModel)]="datos.producto"
+      placeholder="Ej: Curso de finanzas personales" required />
+  </label>
+
+  <label>
+    ¿Qué problema soluciona o qué beneficio principal ofrece?
+    <input type="text" name="beneficio" [(ngModel)]="datos.beneficio"
+      placeholder="Ej: Te enseña a ahorrar dinero cada mes sin sacrificios" required />
+  </label>
+
+  <label>
+    Precio u oferta (opcional)
+    <input type="text" name="precioOferta" [(ngModel)]="datos.precioOferta"
+      placeholder="Ej: 30% de descuento esta semana" />
+  </label>
+
+  <label>
+    Enlace de afiliado de Hotmart
+    <input type="text" name="enlace" [(ngModel)]="datos.enlace"
+      placeholder="https://go.hotmart.com/..." required />
+  </label>
+
+  <label>
+    ¿A quién le hablas? (opcional)
+    <input type="text" name="publico" [(ngModel)]="datos.publico"
+      placeholder="Ej: personas que quieren ordenar sus finanzas" />
+  </label>
+
+  <button type="submit" [disabled]="!formularioValido">Generar publicaciones</button>
+</form>
+
+<section *ngIf="posts.length" class="resultados">
+  <h2>Tus publicaciones listas para usar</h2>
+  <p class="nota">Copia la que más te guste, revísala y publícala en tu página de Facebook.</p>
+
+  <article class="post" *ngFor="let post of posts; let i = index">
+    <p class="gancho">{{ post.gancho }}</p>
+    <p>{{ post.cuerpo }}</p>
+    <p class="cta">{{ post.llamadaAccion }}</p>
+    <p class="hashtags">{{ post.hashtags }}</p>
+    <button class="copiar" (click)="copiar(post, i)">
+      {{ copiadoIndex === i ? '✅ Copiado' : '📋 Copiar publicación' }}
+    </button>
+  </article>
+
+  <button class="secundario" (click)="generar()">🔄 Generar otras 5 publicaciones distintas</button>
+</section>
