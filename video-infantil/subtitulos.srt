@@ -1,0 +1,295 @@
+1
+00:00:00,400 --> 00:00:01,172
+¡Hola, pequeños!
+
+2
+00:00:01,222 --> 00:00:02,816
+Bienvenidos a nuestro canal.
+
+3
+00:00:02,866 --> 00:00:06,514
+Hoy vamos a cantar, contar y aprender los colores.
+
+4
+00:00:06,564 --> 00:00:08,158
+¡Vamos a jugar juntos!
+
+5
+00:00:10,400 --> 00:00:14,026
+Mamá pato y sus cinco patitos salen a pasear.
+
+6
+00:00:14,076 --> 00:00:18,927
+Caminan por el sendero verde y suben la colina, llenos de alegría.
+
+7
+00:00:25,400 --> 00:00:27,420
+Cuatro patitos vuelven con mamá.
+
+8
+00:00:27,470 --> 00:00:29,904
+Tres patitos juegan entre las flores.
+
+9
+00:00:29,954 --> 00:00:31,560
+Dos patitos caminan juntos.
+
+10
+00:00:31,610 --> 00:00:32,388
+¡Cuéntalos conmigo!
+
+11
+00:00:40,400 --> 00:00:43,188
+Los cinco patitos bajan la colina, jugando.
+
+12
+00:00:43,238 --> 00:00:46,837
+Pero ahora hay un solo patito en el camino.
+
+13
+00:00:46,887 --> 00:00:50,081
+Mamá pato sale a buscar a sus patitos.
+
+14
+00:00:55,400 --> 00:00:57,412
+¡Los cinco patitos regresan corriendo!
+
+15
+00:00:57,462 --> 00:01:01,536
+Toda la familia celebra, y juntos caminan hacia el atardecer.
+
+16
+00:01:01,586 --> 00:01:02,773
+¡Qué feliz final!
+
+17
+00:01:10,400 --> 00:01:14,886
+Vamos a contar con los patitos: uno, dos, tres, cuatro, cinco.
+
+18
+00:01:14,936 --> 00:01:15,711
+¡Cinco patitos!
+
+19
+00:01:15,761 --> 00:01:17,773
+Muy bien, ¡ahora cuenta tú!
+
+20
+00:01:25,400 --> 00:01:27,778
+Esta es la familia de colores.
+
+21
+00:01:27,828 --> 00:01:31,015
+Papá nos muestra el rojo: una manzana roja.
+
+22
+00:01:31,065 --> 00:01:35,465
+Mamá nos muestra el azul: el cielo y los globos azules.
+
+23
+00:01:40,400 --> 00:01:43,985
+El hermano nos muestra el verde, como el pasto.
+
+24
+00:01:44,035 --> 00:01:46,812
+La hermana, el amarillo, como el sol.
+
+25
+00:01:46,862 --> 00:01:50,850
+Y el bebé, el rosa, como el algodón de azúcar.
+
+26
+00:01:55,400 --> 00:01:59,925
+Todos caminan por el arcoíris y señalan objetos de muchos colores.
+
+27
+00:01:59,975 --> 00:02:02,004
+¡Bailemos juntos entre los colores!
+
+28
+00:02:10,400 --> 00:02:11,619
+¿Recuerdas los colores?
+
+29
+00:02:11,669 --> 00:02:14,158
+Rojo, azul, verde, amarillo y rosa.
+
+30
+00:02:14,208 --> 00:02:15,850
+¡Señala cada color conmigo!
+
+31
+00:02:25,400 --> 00:02:27,377
+El autobús recorre el pueblo.
+
+32
+00:02:27,427 --> 00:02:29,404
+Las ruedas giran y giran.
+
+33
+00:02:29,454 --> 00:02:35,081
+Dentro, las vacas se mueven contentas, el caballo asiente y los cerditos se divierten.
+
+34
+00:02:40,400 --> 00:02:44,446
+Las ovejitas saltan suavemente y un tigre amistoso nos saluda.
+
+35
+00:02:44,496 --> 00:02:48,542
+El autobús pasa por el parque y cruza un puente.
+
+36
+00:02:55,400 --> 00:03:00,340
+Todos los animales bailan dentro del autobús y saludan por las ventanas.
+
+37
+00:03:00,390 --> 00:03:02,004
+¡Adiós, amiguitos, hasta pronto!
+
+38
+00:03:10,400 --> 00:03:11,587
+¿Qué animales ves?
+
+39
+00:03:11,637 --> 00:03:16,124
+La vaca, el caballo, el cerdito, la oveja y el tigre.
+
+40
+00:03:16,174 --> 00:03:17,773
+¡Haz su sonido conmigo!
+
+41
+00:03:25,400 --> 00:03:27,808
+Cinco monitos juegan en la cama.
+
+42
+00:03:27,858 --> 00:03:30,675
+Ahora son cuatro jugando, y uno descansa.
+
+43
+00:03:30,725 --> 00:03:31,904
+Tres monitos saltan.
+
+44
+00:03:31,954 --> 00:03:33,542
+Dos monitos juegan juntos.
+
+45
+00:03:40,400 --> 00:03:41,972
+Un monito juega solito.
+
+46
+00:03:42,022 --> 00:03:45,621
+Llega la doctora y nos recuerda jugar con cuidado.
+
+47
+00:03:45,671 --> 00:03:50,081
+Los monitos juegan en el suelo y se preparan para dormir.
+
+48
+00:03:55,400 --> 00:03:56,587
+Buenas noches, monitos.
+
+49
+00:03:56,637 --> 00:04:00,299
+Todos están en sus camitas, sonríen y se despiden.
+
+50
+00:04:00,349 --> 00:04:02,773
+Cierra los ojitos y a soñar.
+
+51
+00:04:10,400 --> 00:04:11,988
+¡A jugar al escondite!
+
+52
+00:04:12,038 --> 00:04:17,723
+Los patitos y la familia se asoman detrás de las flores y los árboles.
+
+53
+00:04:17,773 --> 00:04:18,542
+¡Aquí estoy!
+
+54
+00:04:25,400 --> 00:04:28,152
+El trencito alegre llega a la estación.
+
+55
+00:04:28,202 --> 00:04:30,553
+Mamá vaca busca a su ternerito.
+
+56
+00:04:30,603 --> 00:04:33,355
+Toc, toc, en la puerta uno, nada.
+
+57
+00:04:33,405 --> 00:04:35,756
+Toc, toc, en la dos, nada.
+
+58
+00:04:35,806 --> 00:04:38,158
+¡En la tres está el ternero!
+
+59
+00:04:40,400 --> 00:04:44,016
+Después llegamos con el caballo y encontramos al potrillo.
+
+60
+00:04:44,066 --> 00:04:46,460
+Luego la oveja y su corderito.
+
+61
+00:04:46,510 --> 00:04:49,312
+Y también, un patito y un cerdito.
+
+62
+00:04:55,400 --> 00:04:59,947
+¡Todos los animalitos viajan juntos en el tren y saludan felices!
+
+63
+00:04:59,997 --> 00:05:01,619
+Chu chu, chu chu.
+
+64
+00:05:10,400 --> 00:05:15,872
+La familia juega en el jardín y encuentra una cesta con globos de colores.
+
+65
+00:05:15,922 --> 00:05:20,606
+Papá tiene el azul, mamá el amarillo y el hermano el verde.
+
+66
+00:05:20,656 --> 00:05:24,550
+La hermana tiene el rosa y el bebé, el rojo.
+
+67
+00:05:25,400 --> 00:05:28,609
+Todos juegan con los globos de forma segura.
+
+68
+00:05:28,659 --> 00:05:34,312
+Corren por el jardín entre burbujas y confeti, y se juntan bajo un arcoíris.
+
+69
+00:05:40,400 --> 00:05:41,629
+¡Hora de bailar!
+
+70
+00:05:41,679 --> 00:05:44,613
+Aplaudimos, saltamos, movemos los brazos y giramos.
+
+71
+00:05:44,663 --> 00:05:45,465
+¡Repite conmigo!
+
+72
+00:05:55,400 --> 00:05:57,523
+¡Gracias por jugar con nosotros!
+
+73
+00:05:57,573 --> 00:05:58,827
+Nos vemos pronto.
+
+74
+00:05:58,877 --> 00:05:59,696
+¡Adiós, amiguitos!
