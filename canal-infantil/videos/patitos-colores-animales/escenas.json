@@ -1,0 +1,133 @@
+{
+  "voz": "es-MX-DaliaNeural",
+  "velocidad": "-5%",
+  "musica": "musica.mp3",
+  "pausa_final": 0.6,
+  "escenas": [
+    {
+      "clip": "clips/E01.mp4",
+      "narracion": "¡Hola, pequeños! Bienvenidos a nuestro canal. Hoy vamos a cantar, contar y aprender los colores. ¡Vamos a jugar juntos!",
+      "duracion_min": 10
+    },
+    {
+      "clip": "clips/E02.mp4",
+      "narracion": "Mamá pato y sus cinco patitos salen a pasear. Caminan por el sendero verde y suben la colina, llenos de alegría.",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E03.mp4",
+      "narracion": "Cuatro patitos vuelven con mamá. Tres patitos juegan entre las flores. Dos patitos caminan juntos. ¡Cuéntalos conmigo!",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E04.mp4",
+      "narracion": "Los cinco patitos bajan la colina, jugando. Pero ahora hay un solo patito en el camino. Mamá pato sale a buscar a sus patitos.",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E05.mp4",
+      "narracion": "¡Los cinco patitos regresan corriendo! Toda la familia celebra, y juntos caminan hacia el atardecer. ¡Qué feliz final!",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E06.mp4",
+      "narracion": "Vamos a contar con los patitos: uno, dos, tres, cuatro, cinco. ¡Cinco patitos! Muy bien, ¡ahora cuenta tú!",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E07.mp4",
+      "narracion": "Esta es la familia de colores. Papá nos muestra el rojo: una manzana roja. Mamá nos muestra el azul: el cielo y los globos azules.",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E08.mp4",
+      "narracion": "El hermano nos muestra el verde, como el pasto. La hermana, el amarillo, como el sol. Y el bebé, el rosa, como el algodón de azúcar.",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E09.mp4",
+      "narracion": "Todos caminan por el arcoíris y señalan objetos de muchos colores. ¡Bailemos juntos entre los colores!",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E10.mp4",
+      "narracion": "¿Recuerdas los colores? Rojo, azul, verde, amarillo y rosa. ¡Señala cada color conmigo!",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E11.mp4",
+      "narracion": "El autobús recorre el pueblo. Las ruedas giran y giran. Dentro, las vacas se mueven contentas, el caballo asiente y los cerditos se divierten.",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E12.mp4",
+      "narracion": "Las ovejitas saltan suavemente y un tigre amistoso nos saluda. El autobús pasa por el parque y cruza un puente.",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E13.mp4",
+      "narracion": "Todos los animales bailan dentro del autobús y saludan por las ventanas. ¡Adiós, amiguitos, hasta pronto!",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E14.mp4",
+      "narracion": "¿Qué animales ves? La vaca, el caballo, el cerdito, la oveja y el tigre. ¡Haz su sonido conmigo!",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E15.mp4",
+      "narracion": "Cinco monitos juegan en la cama. Ahora son cuatro jugando, y uno descansa. Tres monitos saltan. Dos monitos juegan juntos.",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E16.mp4",
+      "narracion": "Un monito juega solito. Llega la doctora y nos recuerda jugar con cuidado. Los monitos juegan en el suelo y se preparan para dormir.",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E17.mp4",
+      "narracion": "Buenas noches, monitos. Todos están en sus camitas, sonríen y se despiden. Cierra los ojitos y a soñar.",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E18.mp4",
+      "narracion": "¡A jugar al escondite! Los patitos y la familia se asoman detrás de las flores y los árboles. ¡Aquí estoy!",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E19.mp4",
+      "narracion": "El trencito alegre llega a la estación. Mamá vaca busca a su ternerito. Toc, toc, en la puerta uno, nada. Toc, toc, en la dos, nada. ¡En la tres está el ternero!",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E20.mp4",
+      "narracion": "Después llegamos con el caballo y encontramos al potrillo. Luego la oveja y su corderito. Y también, un patito y un cerdito.",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E21.mp4",
+      "narracion": "¡Todos los animalitos viajan juntos en el tren y saludan felices! Chu chu, chu chu.",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E22.mp4",
+      "narracion": "La familia juega en el jardín y encuentra una cesta con globos de colores. Papá tiene el azul, mamá el amarillo y el hermano el verde. La hermana tiene el rosa y el bebé, el rojo.",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E23.mp4",
+      "narracion": "Todos juegan con los globos de forma segura. Corren por el jardín entre burbujas y confeti, y se juntan bajo un arcoíris.",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E24.mp4",
+      "narracion": "¡Hora de bailar! Aplaudimos, saltamos, movemos los brazos y giramos. ¡Repite conmigo!",
+      "duracion_min": 15
+    },
+    {
+      "clip": "clips/E25.mp4",
+      "narracion": "¡Gracias por jugar con nosotros! Nos vemos pronto. ¡Adiós, amiguitos!",
+      "duracion_min": 10
+    }
+  ]
+}

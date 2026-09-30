@@ -1,0 +1,19 @@
+{
+  "voz": "es-MX-DaliaNeural",
+  "velocidad": "-5%",
+  "musica": "musica.mp3",
+  "escenas": [
+    {
+      "imagen": "imagenes/patitos.png",
+      "narracion": "¡Hola, pequeños! Bienvenidos a nuestro canal. Hoy vamos a cantar y contar juntos."
+    },
+    {
+      "imagen": "imagenes/colores.png",
+      "narracion": "Mamá pato y sus cinco patitos salen a pasear. ¡Cuéntalos conmigo!"
+    },
+    {
+      "imagen": "imagenes/autobus.png",
+      "narracion": "Las ruedas del autobús giran y giran. ¡Adiós, amiguitos!"
+    }
+  ]
+}
