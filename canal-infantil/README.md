@@ -1,5 +1,6 @@
 # Canal infantil — producción de videos con agentes
 
+0. Sigue `GUIA-OPCION-A.md` (paso a paso, todo gratis).
 1. Lee `REQUISITOS.md` (herramientas gratuitas, cuentas, licencias, checklist).
 2. Cierra `biblia-de-personajes.md`.
 3. Para cada video crea `canal-infantil/videos/<slug>/` y pide a los agentes, en orden:
