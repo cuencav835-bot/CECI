@@ -1,0 +1,32 @@
+# Guion y prompts — Números del 1 al 10 con los animalitos del bosque
+
+Video corto de ~2–2,5 min, 10 escenas. Ideal para empezar con cuotas gratuitas (1–2 días).
+
+## Personajes fijos
+- **Lula**, búho guía: pequeño búho color crema con pecho beige, ojos grandes marrones, lazo verde en la cabeza.
+- **Grupo 1–5:** 1 conejito blanco, 2 ardillas pardas, 3 erizos, 4 zorritos naranjas, 5 ositos pardos.
+- **Grupo 6–10:** 6 mariposas de colores, 7 patitos amarillos, 8 caracoles, 9 pajaritos azules, 10 luciérnagas.
+
+## Imágenes de referencia (genera y guarda en `referencias/`)
+- **R1 Lula:** cute little cream owl with big brown eyes and a green bow on her head, full body, pastel green forest background, 3D Pixar-like kids cartoon, vivid pastel colors, warm soft light, slow smooth camera, same character design throughout, no text, no numbers drawn, no logos, no watermark, nothing scary.
+- **R2 animales 1–5:** a white bunny, two brown squirrels, three hedgehogs, four orange foxes and five brown bear cubs lined up in groups, pastel forest background, each group clearly countable, 3D Pixar-like kids cartoon, vivid pastel colors, warm soft light, slow smooth camera, same character design throughout, no text, no numbers drawn, no logos, no watermark, nothing scary.
+- **R3 animales 6–10:** six colorful butterflies, seven yellow ducklings, eight snails, nine small blue birds and ten glowing fireflies in clearly separated groups, pastel background, 3D Pixar-like kids cartoon, vivid pastel colors, warm soft light, slow smooth camera, same character design throughout, no text, no numbers drawn, no logos, no watermark, nothing scary.
+
+Ajustes en cada herramienta: 16:9, 720p, **5–10 s** (elige 10 s si la herramienta lo permite), sin audio, imagen-a-video con la referencia indicada.
+
+## Escenas
+| Escena | Ref | Prompt de video (inglés) | Narración |
+|---|---|---|---|
+| E01 Intro | R1 | Little owl guide waves hello on a sunny forest clearing with flowers and butterflies, smiling at the camera. 3D Pixar-like kids cartoon, vivid pastel colors, warm soft light, slow smooth camera, same character design throughout, no text, no numbers drawn, no logos, no watermark, nothing scary. | ¡Hola, pequeños! Soy la búho Lula. Hoy vamos a aprender los números del uno al diez con los animalitos del bosque. ¡Vamos a contar! |
+| E02 1 y 2 | R2 | One little bunny hops into the clearing, then two squirrels appear next to it, clearly countable, slow camera. 3D Pixar-like kids cartoon, vivid pastel colors, warm soft light, slow smooth camera, same character design throughout, no text, no numbers drawn, no logos, no watermark, nothing scary. | Uno: un conejito salta por el bosque. Dos: dos ardillitas bajan del árbol. ¡Uno, dos! |
+| E03 3 y 4 | R2 | Three hedgehogs walk in a row, then four little foxes sit in a row, each group clearly countable. 3D Pixar-like kids cartoon, vivid pastel colors, warm soft light, slow smooth camera, same character design throughout, no text, no numbers drawn, no logos, no watermark, nothing scary. | Tres: tres erizos caminan despacito. Cuatro: cuatro zorritos se sientan juntos. ¡Tres, cuatro! |
+| E04 5 y 6 | R2+R3 | Five bear cubs wave at the camera, then six colorful butterflies flutter around, clearly countable. 3D Pixar-like kids cartoon, vivid pastel colors, warm soft light, slow smooth camera, same character design throughout, no text, no numbers drawn, no logos, no watermark, nothing scary. | Cinco: cinco ositos saludan. Seis: seis mariposas vuelan alrededor. ¡Cinco, seis! |
+| E05 7 y 8 | R3 | Seven ducklings swim in a row on a pond, then eight snails crawl slowly along a log, clearly countable. 3D Pixar-like kids cartoon, vivid pastel colors, warm soft light, slow smooth camera, same character design throughout, no text, no numbers drawn, no logos, no watermark, nothing scary. | Siete: siete patitos nadan en el estanque. Ocho: ocho caracoles pasean por el tronco. ¡Siete, ocho! |
+| E06 9 y 10 | R3 | Nine small birds sit on a branch singing, then ten fireflies glow softly at dusk, clearly countable. 3D Pixar-like kids cartoon, vivid pastel colors, warm soft light, slow smooth camera, same character design throughout, no text, no numbers drawn, no logos, no watermark, nothing scary. | Nueve: nueve pajaritos cantan en la rama. Diez: diez luciérnagas brillan en la noche. ¡Nueve, diez! |
+| E07 Repaso 1-10 | R2+R3 | All the animals appear again in order, one group after another, the owl points at each group. 3D Pixar-like kids cartoon, vivid pastel colors, warm soft light, slow smooth camera, same character design throughout, no text, no numbers drawn, no logos, no watermark, nothing scary. | ¡Vamos a repasar! Un conejito, dos ardillas, tres erizos, cuatro zorritos, cinco ositos. Seis mariposas, siete patitos, ocho caracoles, nueve pajaritos y diez luciérnagas. |
+| E08 Cuenta con los dedos | R1 | The owl shows her wings opening one feather at a time, slowly counting to ten, cheerful forest background. 3D Pixar-like kids cartoon, vivid pastel colors, warm soft light, slow smooth camera, same character design throughout, no text, no numbers drawn, no logos, no watermark, nothing scary. | Ahora cuenta conmigo con tus deditos. Uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez. ¡Muy bien! |
+| E09 Hacia atrás | R1+R2+R3 | Ten fireflies disappear one by one until none is left, then the animals wave goodnight, sunset forest, slow camera. 3D Pixar-like kids cartoon, vivid pastel colors, warm soft light, slow smooth camera, same character design throughout, no text, no numbers drawn, no logos, no watermark, nothing scary. | Ahora al revés: diez, nueve, ocho, siete, seis, cinco, cuatro, tres, dos, uno. ¡Cero! Se acabaron las luciérnagas. |
+| E10 Despedida | R1+R2+R3 | All the forest animals and the owl wave goodbye together in the clearing at sunset with fireflies and butterflies. 3D Pixar-like kids cartoon, vivid pastel colors, warm soft light, slow smooth camera, same character design throughout, no text, no numbers drawn, no logos, no watermark, nothing scary. | ¡Lo lograste! Ya sabes contar hasta diez. Gracias por jugar conmigo. ¡Hasta la próxima, amiguitos! |
+
+Revisa el conteo en cada clip (E02–E06 son las críticas): si salen más o menos animales, repite el clip con el número escrito en letras ("exactly FOUR foxes").
+Escribe "no numbers drawn" en los prompts: así evitas dígitos deformados dentro de la imagen; los números se dicen en la voz y salen en los subtítulos.
