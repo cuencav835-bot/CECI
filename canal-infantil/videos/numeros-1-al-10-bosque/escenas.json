@@ -1,0 +1,58 @@
+{
+  "voz": "es-MX-DaliaNeural",
+  "velocidad": "-5%",
+  "musica": "musica.mp3",
+  "pausa_final": 0.6,
+  "escenas": [
+    {
+      "clip": "clips/E01.mp4",
+      "narracion": "¡Hola, pequeños! Soy la búho Lula. Hoy vamos a aprender los números del uno al diez con los animalitos del bosque. ¡Vamos a contar!",
+      "duracion_min": 6
+    },
+    {
+      "clip": "clips/E02.mp4",
+      "narracion": "Uno: un conejito salta por el bosque. Dos: dos ardillitas bajan del árbol. ¡Uno, dos!",
+      "duracion_min": 6
+    },
+    {
+      "clip": "clips/E03.mp4",
+      "narracion": "Tres: tres erizos caminan despacito. Cuatro: cuatro zorritos se sientan juntos. ¡Tres, cuatro!",
+      "duracion_min": 6
+    },
+    {
+      "clip": "clips/E04.mp4",
+      "narracion": "Cinco: cinco ositos saludan. Seis: seis mariposas vuelan alrededor. ¡Cinco, seis!",
+      "duracion_min": 6
+    },
+    {
+      "clip": "clips/E05.mp4",
+      "narracion": "Siete: siete patitos nadan en el estanque. Ocho: ocho caracoles pasean por el tronco. ¡Siete, ocho!",
+      "duracion_min": 6
+    },
+    {
+      "clip": "clips/E06.mp4",
+      "narracion": "Nueve: nueve pajaritos cantan en la rama. Diez: diez luciérnagas brillan en la noche. ¡Nueve, diez!",
+      "duracion_min": 6
+    },
+    {
+      "clip": "clips/E07.mp4",
+      "narracion": "¡Vamos a repasar! Un conejito, dos ardillas, tres erizos, cuatro zorritos, cinco ositos. Seis mariposas, siete patitos, ocho caracoles, nueve pajaritos y diez luciérnagas.",
+      "duracion_min": 6
+    },
+    {
+      "clip": "clips/E08.mp4",
+      "narracion": "Ahora cuenta conmigo con tus deditos. Uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez. ¡Muy bien!",
+      "duracion_min": 6
+    },
+    {
+      "clip": "clips/E09.mp4",
+      "narracion": "Ahora al revés: diez, nueve, ocho, siete, seis, cinco, cuatro, tres, dos, uno. ¡Cero! Se acabaron las luciérnagas.",
+      "duracion_min": 6
+    },
+    {
+      "clip": "clips/E10.mp4",
+      "narracion": "¡Lo lograste! Ya sabes contar hasta diez. Gracias por jugar conmigo. ¡Hasta la próxima, amiguitos!",
+      "duracion_min": 6
+    }
+  ]
+}
