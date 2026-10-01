@@ -1,0 +1,115 @@
+1
+00:00:00,300 --> 00:00:01,033
+¡Hola, pequeños!
+
+2
+00:00:01,083 --> 00:00:02,600
+Soy la búho Lula.
+
+3
+00:00:02,650 --> 00:00:09,650
+Hoy vamos a aprender los números del uno al diez con los animalitos del bosque. ¡Vamos a contar!
+
+4
+00:00:10,300 --> 00:00:10,661
+Uno:
+
+5
+00:00:10,711 --> 00:00:13,540
+un conejito salta por el bosque. Dos:
+
+6
+00:00:13,590 --> 00:00:16,419
+dos ardillitas bajan del árbol. ¡Uno, dos!
+
+7
+00:00:20,300 --> 00:00:20,665
+Tres:
+
+8
+00:00:20,715 --> 00:00:22,742
+tres erizos caminan despacito. Cuatro:
+
+9
+00:00:22,792 --> 00:00:25,650
+cuatro zorritos se sientan juntos. ¡Tres, cuatro!
+
+10
+00:00:30,300 --> 00:00:32,355
+Cinco: cinco ositos saludan. Seis:
+
+11
+00:00:32,405 --> 00:00:34,881
+seis mariposas vuelan alrededor. ¡Cinco, seis!
+
+12
+00:00:40,300 --> 00:00:40,660
+Siete:
+
+13
+00:00:40,710 --> 00:00:43,527
+siete patitos nadan en el estanque. Ocho:
+
+14
+00:00:43,577 --> 00:00:46,804
+ocho caracoles pasean por el tronco. ¡Siete, ocho!
+
+15
+00:00:50,300 --> 00:00:50,660
+Nueve:
+
+16
+00:00:50,710 --> 00:00:53,527
+nueve pajaritos cantan en la rama. Diez:
+
+17
+00:00:53,577 --> 00:00:56,804
+diez luciérnagas brillan en la noche. ¡Nueve, diez!
+
+18
+00:01:00,300 --> 00:01:01,454
+¡Vamos a repasar!
+
+19
+00:01:01,504 --> 00:01:05,467
+Un conejito, dos ardillas, tres erizos, cuatro zorritos, cinco ositos.
+
+20
+00:01:05,517 --> 00:01:09,881
+Seis mariposas, siete patitos, ocho caracoles, nueve pajaritos y diez luciérnagas.
+
+21
+00:01:15,300 --> 00:01:17,691
+Ahora cuenta conmigo con tus deditos.
+
+22
+00:01:17,741 --> 00:01:22,573
+Uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez. ¡Muy bien!
+
+23
+00:01:25,300 --> 00:01:26,471
+Ahora al revés:
+
+24
+00:01:26,521 --> 00:01:30,946
+diez, nueve, ocho, siete, seis, cinco, cuatro, tres, dos, uno. ¡Cero!
+
+25
+00:01:30,996 --> 00:01:32,573
+Se acabaron las luciérnagas.
+
+26
+00:01:35,300 --> 00:01:36,073
+¡Lo lograste!
+
+27
+00:01:36,123 --> 00:01:38,129
+Ya sabes contar hasta diez.
+
+28
+00:01:38,179 --> 00:01:39,774
+Gracias por jugar conmigo.
+
+29
+00:01:39,824 --> 00:01:41,419
+¡Hasta la próxima, amiguitos!
