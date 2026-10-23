@@ -1,11 +1,17 @@
 <header class="barra">
-  <a routerLink="/" class="marca">CECI</a>
-  <span class="lema">Agencia de contenido con IA</span>
+  <a routerLink="/" class="marca">+Salud</a>
+  <span class="lema">por CECI</span>
+
+  <nav class="enlaces" aria-label="Principal">
+    <a routerLink="/agente-menu" routerLinkActive="activo">Menú semanal</a>
+    <a routerLink="/asistente-ia" routerLinkActive="activo">Asistente IA</a>
+  </nav>
+
   <nav class="sesion">
     @if (cuenta.usuario(); as u) {
-      <a routerLink="/cuenta">👤 {{ u.nombre }}</a>
+      <a routerLink="/cuenta" routerLinkActive="activo">👤 {{ u.nombre }}</a>
     } @else if (!cuenta.cargando()) {
-      <a routerLink="/acceso">Entrar</a>
+      <a routerLink="/acceso" routerLinkActive="activo">Entrar</a>
     }
   </nav>
 </header>
@@ -13,3 +19,14 @@
 <main>
   <router-outlet />
 </main>
+
+<nav class="pestanas-app" aria-label="Navegación móvil">
+  <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">
+    <span aria-hidden="true">🏠</span>Inicio
+  </a>
+  <a routerLink="/agente-menu" routerLinkActive="activo"><span aria-hidden="true">🥗</span>Menú</a>
+  <a routerLink="/asistente-ia" routerLinkActive="activo"><span aria-hidden="true">🤖</span>IA</a>
+  <a [routerLink]="cuenta.usuario() ? '/cuenta' : '/acceso'" routerLinkActive="activo">
+    <span aria-hidden="true">👤</span>{{ cuenta.usuario() ? 'Cuenta' : 'Entrar' }}
+  </a>
+</nav>

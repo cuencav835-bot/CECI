@@ -1,8 +1,18 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
 .barra {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 0.75rem;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1.5rem;
+  padding-top: calc(0.5rem + env(safe-area-inset-top));
+  background: #fff;
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -18,12 +28,93 @@
   font-size: 0.9rem;
 }
 
+.enlaces {
+  display: flex;
+  gap: 0.25rem;
+  margin-left: 1.5rem;
+}
+
+.barra a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.75rem;
+  border-radius: 8px;
+  color: #374151;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.barra a:hover,
+.barra a.activo {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.barra .marca {
+  padding: 0;
+  color: #2563eb;
+}
+
+.barra .marca:hover {
+  background: none;
+}
+
 .sesion {
   margin-left: auto;
 }
 
-.sesion a {
-  color: #2563eb;
-  font-weight: 600;
-  text-decoration: none;
+/* Barra inferior: solo en móvil */
+.pestanas-app {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .barra {
+    padding: 0.25rem 1rem;
+    padding-top: calc(0.25rem + env(safe-area-inset-top));
+  }
+
+  .lema,
+  .enlaces {
+    display: none;
+  }
+
+  main {
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
+  }
+
+  .pestanas-app {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: #fff;
+    border-top: 1px solid #e5e7eb;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .pestanas-app a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1rem;
+    min-height: 56px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-decoration: none;
+  }
+
+  .pestanas-app a span {
+    font-size: 1.3rem;
+  }
+
+  .pestanas-app a.activo {
+    color: #2563eb;
+  }
 }

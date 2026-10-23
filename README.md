@@ -53,6 +53,13 @@ recargando la página. Una consulta que falla no se descuenta.
 > El webhook de Hotmart está hecho según su documentación, pero no se ha probado con una compra real:
 > haz una compra de prueba antes de anunciar el Premium.
 
+### Móvil y ordenador
+
+La app se adapta a cualquier pantalla (en el móvil tiene barra de navegación inferior) y se puede
+instalar como una app, sin pasar por tiendas: en el móvil abre el sitio y elige *Añadir a pantalla de
+inicio* (iPhone: Compartir → *Añadir a pantalla de inicio*; Android: menú ⋮ → *Instalar app*). Una vez
+visitada, abre también sin conexión; la IA y las cuentas sí necesitan internet.
+
 ### Pruebas
 
 `npm run test:api` (lógica del servidor: cuentas, límites, IA simulada, Hotmart).

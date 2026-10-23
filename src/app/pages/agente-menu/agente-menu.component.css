@@ -1,6 +1,6 @@
 :host {
   display: block;
-  max-width: 640px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 1.5rem 1rem 3rem;
 }
@@ -93,6 +93,12 @@ button.secundario {
   line-height: 1.5;
 }
 
+.cuadricula {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.75rem;
+}
+
 .dia {
   border: 1px solid #e5e7eb;
   border-radius: 12px;
@@ -130,5 +136,11 @@ button.secundario {
 @media print {
   .volver, .formulario, .acciones, .ayuda {
     display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .acciones button {
+    flex: 1 1 100%;
   }
 }
