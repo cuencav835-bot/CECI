@@ -1,0 +1,83 @@
+<a routerLink="/" class="volver">← Volver al inicio</a>
+
+<ng-container *ngIf="cuenta.usuario() as u; else sinSesion">
+  <h1>Hola, {{ u.nombre }} 👋</h1>
+  <p class="plan">
+    Plan <strong>{{ u.plan === 'premium' ? '⭐ Premium' : 'Gratis' }}</strong>
+    · Consultas con IA que te quedan hoy: <strong>{{ u.consultasRestantes }}</strong>
+    <a *ngIf="u.plan === 'gratis' && enlacePremium" [href]="enlacePremium" target="_blank" rel="noopener" class="premium">
+      Mejorar a Premium
+    </a>
+  </p>
+
+  <h2>Mi perfil</h2>
+  <form class="formulario" (ngSubmit)="guardarPerfil()">
+    <label>
+      Mi objetivo
+      <select name="objetivo" [(ngModel)]="objetivo">
+        <option value="bajar">Bajar de peso</option>
+        <option value="mantener">Mantener mi peso</option>
+        <option value="subir">Ganar masa muscular</option>
+      </select>
+    </label>
+    <label>
+      ¿Para cuántas personas cocino?
+      <input type="number" name="personas" min="1" max="10" [(ngModel)]="personas" />
+    </label>
+    <fieldset>
+      <legend>Restricciones</legend>
+      <label class="check" *ngFor="let o of opciones">
+        <input type="checkbox" [checked]="restricciones.includes(o.valor)" (change)="alternar(o.valor)" /> {{ o.etiqueta }}
+      </label>
+    </fieldset>
+    <label class="check">
+      <input type="checkbox" name="snack" [(ngModel)]="incluirSnack" /> Incluir un snack al día
+    </label>
+    <button type="submit">Guardar perfil</button>
+    <p class="ok" *ngIf="mensaje">{{ mensaje }}</p>
+  </form>
+
+  <h2>🍳 Mis recetas favoritas</h2>
+  <p class="vacio" *ngIf="!u.favoritos.length">
+    Aún no tienes recetas guardadas. Crea una en el <a routerLink="/asistente-ia">asistente con IA</a>.
+  </p>
+  <article class="item" *ngFor="let f of u.favoritos">
+    <header>
+      <button class="titulo" (click)="abierta = abierta === f.id ? null : f.id">{{ f.receta.nombre }}</button>
+      <button class="borrar" (click)="borrarFavorito(f.id)" aria-label="Borrar receta">🗑️</button>
+    </header>
+    <div *ngIf="abierta === f.id">
+      <p class="datos">{{ f.receta.porciones }} porciones · {{ f.receta.tiempoMin }} min
+        <span *ngIf="f.receta.kcalPorPorcion"> · ≈ {{ f.receta.kcalPorPorcion }} kcal</span></p>
+      <ul><li *ngFor="let i of f.receta.ingredientes">{{ i }}</li></ul>
+      <ol><li *ngFor="let p of f.receta.pasos">{{ p }}</li></ol>
+    </div>
+  </article>
+
+  <h2>📅 Mis menús guardados</h2>
+  <p class="vacio" *ngIf="!u.menus.length">
+    Aún no tienes menús guardados. Crea uno en el <a routerLink="/agente-menu">agente de menú semanal</a>.
+  </p>
+  <article class="item" *ngFor="let m of u.menus">
+    <header>
+      <button class="titulo" (click)="abierta = abierta === m.id ? null : m.id">
+        {{ m.titulo }} <small>{{ m.fecha | date: 'dd/MM/yyyy' }}</small>
+      </button>
+      <button class="borrar" (click)="borrarMenu(m.id)" aria-label="Borrar menú">🗑️</button>
+    </header>
+    <div *ngIf="abierta === m.id">
+      <pre>{{ m.texto }}</pre>
+      <button class="secundario" (click)="copiar(m.texto)">📋 Copiar</button>
+    </div>
+  </article>
+
+  <button class="salir" (click)="salir()">Cerrar sesión</button>
+</ng-container>
+
+<ng-template #sinSesion>
+  <h1>Mi cuenta</h1>
+  <p *ngIf="cuenta.cargando()">Cargando…</p>
+  <p *ngIf="!cuenta.cargando()">
+    Necesitas <a routerLink="/acceso">iniciar sesión o crear una cuenta</a> para ver esta página.
+  </p>
+</ng-template>
