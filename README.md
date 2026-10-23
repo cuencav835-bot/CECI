@@ -19,6 +19,18 @@ Agentes disponibles:
   cuántas personas son y tus restricciones (vegetariano, sin lactosa, sin gluten) y te genera
   un menú de 7 días con lista de la compra agrupada, que puedes copiar o imprimir/guardar en PDF.
   Funciona sin IA de pago, con un banco de recetas propio. No sustituye a un nutricionista.
+- **🤖 Asistente de Nutrición con IA**: receta con los ingredientes que tengas y chat nutricional.
+  A diferencia de los otros agentes, este SÍ usa una IA de pago (Claude) y por eso corre en una
+  función del servidor (`netlify/functions/ia.js`), nunca en el navegador, para no exponer la clave.
+
+### Configurar el asistente con IA
+
+1. En Netlify: *Site configuration → Environment variables* y crea `ANTHROPIC_API_KEY` con tu clave.
+2. Opcional: `IA_LIMITE_USUARIO_DIA` (por defecto 10), `IA_LIMITE_GLOBAL_DIA` (por defecto 500, tope de gasto diario)
+   e `IA_MODELO`.
+3. Los límites se guardan en memoria: sirven de freno de costes pero se reinician si la función se
+   recicla. Para un límite estricto por cuenta de usuario hace falta guardar los contadores en una base de datos.
+4. Pruebas de la lógica: `npm run test:ia`. Para probar en tu computadora con la función: `npx netlify dev`.
 
 ## Cómo probarlo en tu computadora
 

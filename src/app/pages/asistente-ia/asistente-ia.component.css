@@ -1,0 +1,24 @@
+:host { display: block; max-width: 640px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+.volver { display: inline-block; margin-bottom: 1rem; color: #2563eb; text-decoration: none; font-weight: 600; }
+h1 { margin-bottom: 0.25rem; }
+.ayuda, .nota { color: #6b7280; line-height: 1.5; }
+.pestanas { display: flex; gap: 0.5rem; margin: 1rem 0; flex-wrap: wrap; }
+.pestanas button { background: #e5e7eb; color: #111827; }
+.pestanas button.activa { background: #2563eb; color: #fff; }
+button { font: inherit; font-weight: 600; padding: 0.7rem 1rem; border: none; border-radius: 8px; background: #2563eb; color: #fff; cursor: pointer; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+.formulario { display: flex; flex-direction: column; gap: 1rem; background: #f8fafc; border-radius: 12px; padding: 1.5rem; margin: 1rem 0; }
+label { display: flex; flex-direction: column; gap: 0.35rem; font-weight: 600; font-size: 0.9rem; color: #374151; }
+label.check { flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 500; }
+fieldset { border: 1px solid #d1d5db; border-radius: 8px; display: flex; flex-direction: column; gap: 0.5rem; }
+textarea, input[name='pregunta'] { font: inherit; padding: 0.6rem 0.75rem; border: 1px solid #d1d5db; border-radius: 8px; }
+.error { background: #fef2f2; color: #991b1b; padding: 0.75rem 1rem; border-radius: 8px; }
+.receta { border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem 1.5rem; }
+.receta h2 { margin-top: 0; }
+.datos { color: #6b7280; }
+.chat { display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0; }
+.burbuja { background: #f3f4f6; padding: 0.7rem 1rem; border-radius: 12px; max-width: 85%; line-height: 1.5; white-space: pre-wrap; }
+.burbuja.mia { background: #dbeafe; align-self: flex-end; }
+.enviar { display: flex; gap: 0.5rem; }
+.enviar input { flex: 1; }
+.aviso { margin-top: 1.5rem; font-size: 0.85rem; color: #6b7280; line-height: 1.5; }

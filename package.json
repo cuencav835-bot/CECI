@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:ia": "node --test tests/ia-core.test.js"
   },
   "private": true,
   "dependencies": {

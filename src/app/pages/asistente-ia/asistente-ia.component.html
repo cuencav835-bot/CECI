@@ -1,0 +1,61 @@
+<a routerLink="/" class="volver">← Volver al inicio</a>
+
+<h1>🤖 Asistente de Nutrición con IA</h1>
+<p class="ayuda">Crea una receta con lo que tienes en casa o pregunta tus dudas de alimentación.</p>
+
+<div class="pestanas">
+  <button [class.activa]="pestana === 'receta'" (click)="pestana = 'receta'">🍳 Receta con mis ingredientes</button>
+  <button [class.activa]="pestana === 'chat'" (click)="pestana = 'chat'">💬 Chat nutricional</button>
+</div>
+
+<p class="error" *ngIf="error">{{ error }}</p>
+
+<section *ngIf="pestana === 'receta'">
+  <form class="formulario" (ngSubmit)="generarReceta()">
+    <label>
+      ¿Qué ingredientes tienes? (sepáralos con comas)
+      <textarea name="ing" rows="3" [(ngModel)]="ingredientesTexto"
+        placeholder="Ej: pollo, arroz, zanahoria, cebolla"></textarea>
+    </label>
+    <fieldset>
+      <legend>Restricciones (opcional)</legend>
+      <label class="check" *ngFor="let o of opciones">
+        <input type="checkbox" [checked]="restricciones.includes(o)" (change)="alternar(o)" /> {{ o }}
+      </label>
+    </fieldset>
+    <button type="submit" [disabled]="ingredientes.length < 2 || cargando">
+      {{ cargando ? 'Creando receta…' : 'Crear receta' }}
+    </button>
+  </form>
+
+  <article class="receta" *ngIf="receta">
+    <h2>{{ receta.nombre }}</h2>
+    <p class="datos">
+      {{ receta.porciones }} porciones · {{ receta.tiempoMin }} min
+      <span *ngIf="receta.kcalPorPorcion"> · ≈ {{ receta.kcalPorPorcion }} kcal por porción</span>
+    </p>
+    <h3>Ingredientes</h3>
+    <ul><li *ngFor="let i of receta.ingredientes">{{ i }}</li></ul>
+    <h3>Preparación</h3>
+    <ol><li *ngFor="let p of receta.pasos">{{ p }}</li></ol>
+    <p class="nota" *ngIf="receta.nota">{{ receta.nota }}</p>
+  </article>
+</section>
+
+<section *ngIf="pestana === 'chat'">
+  <div class="chat">
+    <p class="nota" *ngIf="!mensajes.length">Pregunta, por ejemplo: «¿Qué puedo cenar ligero?»</p>
+    <div class="burbuja" *ngFor="let m of mensajes" [class.mia]="m.rol === 'user'">{{ m.texto }}</div>
+    <div class="burbuja" *ngIf="cargando">Escribiendo…</div>
+  </div>
+  <form class="enviar" (ngSubmit)="preguntar()">
+    <input name="pregunta" maxlength="500" [(ngModel)]="pregunta" placeholder="Escribe tu pregunta" />
+    <button type="submit" [disabled]="!pregunta.trim() || cargando">Enviar</button>
+  </form>
+</section>
+
+<p class="nota" *ngIf="restantes !== null">Consultas que te quedan hoy: {{ restantes }}</p>
+<p class="aviso">
+  Información general de alimentación; no sustituye el consejo de un médico o nutricionista.
+  Las calorías son aproximadas.
+</p>
