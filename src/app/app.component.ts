@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { CuentaService } from './services/cuenta.service';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,8 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'ceci';
+
+  constructor(public cuenta: CuentaService) {
+    this.cuenta.iniciar();
+  }
 }

@@ -1,6 +1,13 @@
 <header class="barra">
   <a routerLink="/" class="marca">CECI</a>
   <span class="lema">Agencia de contenido con IA</span>
+  <nav class="sesion">
+    @if (cuenta.usuario(); as u) {
+      <a routerLink="/cuenta">👤 {{ u.nombre }}</a>
+    } @else if (!cuenta.cargando()) {
+      <a routerLink="/acceso">Entrar</a>
+    }
+  </nav>
 </header>
 
 <main>

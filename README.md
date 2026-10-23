@@ -20,17 +20,42 @@ Agentes disponibles:
   un menú de 7 días con lista de la compra agrupada, que puedes copiar o imprimir/guardar en PDF.
   Funciona sin IA de pago, con un banco de recetas propio. No sustituye a un nutricionista.
 - **🤖 Asistente de Nutrición con IA**: receta con los ingredientes que tengas y chat nutricional.
-  A diferencia de los otros agentes, este SÍ usa una IA de pago (Claude) y por eso corre en una
-  función del servidor (`netlify/functions/ia.js`), nunca en el navegador, para no exponer la clave.
+  A diferencia de los otros agentes, este SÍ usa una IA de pago (Claude) y corre en una función
+  del servidor (`netlify/functions/api.mjs`), nunca en el navegador, para no exponer la clave.
+- **👤 Cuentas**: registro e inicio de sesión, perfil (objetivo, personas, restricciones), recetas
+  favoritas y menús guardados. Los datos se guardan en Netlify Blobs.
 
-### Configurar el asistente con IA
+### Poner a funcionar las cuentas y la IA (una sola vez)
 
-1. En Netlify: *Site configuration → Environment variables* y crea `ANTHROPIC_API_KEY` con tu clave.
-2. Opcional: `IA_LIMITE_USUARIO_DIA` (por defecto 10), `IA_LIMITE_GLOBAL_DIA` (por defecto 500, tope de gasto diario)
-   e `IA_MODELO`.
-3. Los límites se guardan en memoria: sirven de freno de costes pero se reinician si la función se
-   recicla. Para un límite estricto por cuenta de usuario hace falta guardar los contadores en una base de datos.
-4. Pruebas de la lógica: `npm run test:ia`. Para probar en tu computadora con la función: `npx netlify dev`.
+En Netlify: *Site configuration → Environment variables*:
+
+| Variable | Para qué | Obligatoria |
+|---|---|---|
+| `AUTH_SECRET` | Firma las sesiones. Pon un texto largo y aleatorio (32+ caracteres) y no lo compartas. | Sí |
+| `ANTHROPIC_API_KEY` | Clave de la IA (Claude). Cada consulta cuesta dinero. | Sí, para el asistente |
+| `HOTMART_HOTTOK` | Token del webhook de Hotmart para activar Premium al comprar. | Para vender Premium |
+| `IA_LIMITE_GRATIS_DIA` / `IA_LIMITE_PREMIUM_DIA` | Consultas con IA por día (5 y 50 por defecto). | No |
+| `IA_LIMITE_GLOBAL_DIA` | Tope total de consultas al día entre todos (500). Es tu freno de gasto. | No |
+| `IA_MODELO` | Modelo de IA (por defecto `claude-haiku-5-5`, el más barato). | No |
+
+Los límites cuentan por cuenta de usuario y se guardan en la base de datos, así que no se saltan
+recargando la página. Una consulta que falla no se descuenta.
+
+### Vender el plan Premium con Hotmart
+
+1. Crea el producto Premium en Hotmart y copia su enlace de pago en `src/app/config.ts` (`ENLACE_PREMIUM`).
+2. En Hotmart: *Herramientas → Webhook (Postback)*, URL
+   `https://TU-SITIO.netlify.app/.netlify/functions/api?accion=hotmart`, con los eventos de compra
+   aprobada, reembolso, cancelación y contracargo. Copia el *hottok* a la variable `HOTMART_HOTTOK`.
+3. Quien compre con el mismo correo de su cuenta pasa a Premium automáticamente (y vuelve a Gratis si
+   hay reembolso o cancelación).
+
+> El webhook de Hotmart está hecho según su documentación, pero no se ha probado con una compra real:
+> haz una compra de prueba antes de anunciar el Premium.
+
+### Pruebas
+
+`npm run test:api` (lógica del servidor: cuentas, límites, IA simulada, Hotmart).
 
 ## Cómo probarlo en tu computadora
 

@@ -3,12 +3,22 @@
 <h1>🤖 Asistente de Nutrición con IA</h1>
 <p class="ayuda">Crea una receta con lo que tienes en casa o pregunta tus dudas de alimentación.</p>
 
+<p class="error" *ngIf="!cuenta.cargando() && !cuenta.usuario()">
+  Para usar el asistente necesitas una cuenta gratis.
+  <a routerLink="/acceso">Inicia sesión o regístrate</a>.
+</p>
+
 <div class="pestanas">
   <button [class.activa]="pestana === 'receta'" (click)="pestana = 'receta'">🍳 Receta con mis ingredientes</button>
   <button [class.activa]="pestana === 'chat'" (click)="pestana = 'chat'">💬 Chat nutricional</button>
 </div>
 
-<p class="error" *ngIf="error">{{ error }}</p>
+<p class="error" *ngIf="error">
+  {{ error }}
+  <ng-container *ngIf="limiteAlcanzado && enlacePremium">
+    <a [href]="enlacePremium" target="_blank" rel="noopener">Consigue más consultas con Premium</a>.
+  </ng-container>
+</p>
 
 <section *ngIf="pestana === 'receta'">
   <form class="formulario" (ngSubmit)="generarReceta()">
@@ -23,7 +33,7 @@
         <input type="checkbox" [checked]="restricciones.includes(o)" (change)="alternar(o)" /> {{ o }}
       </label>
     </fieldset>
-    <button type="submit" [disabled]="ingredientes.length < 2 || cargando">
+    <button type="submit" [disabled]="ingredientes.length < 2 || cargando || !cuenta.usuario()">
       {{ cargando ? 'Creando receta…' : 'Crear receta' }}
     </button>
   </form>
@@ -39,6 +49,9 @@
     <h3>Preparación</h3>
     <ol><li *ngFor="let p of receta.pasos">{{ p }}</li></ol>
     <p class="nota" *ngIf="receta.nota">{{ receta.nota }}</p>
+    <button type="button" (click)="guardarReceta()" [disabled]="guardada">
+      {{ guardada ? '✅ Guardada en favoritos' : '⭐ Guardar en favoritos' }}
+    </button>
   </article>
 </section>
 
@@ -50,11 +63,11 @@
   </div>
   <form class="enviar" (ngSubmit)="preguntar()">
     <input name="pregunta" maxlength="500" [(ngModel)]="pregunta" placeholder="Escribe tu pregunta" />
-    <button type="submit" [disabled]="!pregunta.trim() || cargando">Enviar</button>
+    <button type="submit" [disabled]="!pregunta.trim() || cargando || !cuenta.usuario()">Enviar</button>
   </form>
 </section>
 
-<p class="nota" *ngIf="restantes !== null">Consultas que te quedan hoy: {{ restantes }}</p>
+<p class="nota" *ngIf="cuenta.usuario() as u">Consultas con IA que te quedan hoy: {{ u.consultasRestantes }}</p>
 <p class="aviso">
   Información general de alimentación; no sustituye el consejo de un médico o nutricionista.
   Las calorías son aproximadas.

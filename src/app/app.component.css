@@ -17,3 +17,13 @@
   color: #6b7280;
   font-size: 0.9rem;
 }
+
+.sesion {
+  margin-left: auto;
+}
+
+.sesion a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}

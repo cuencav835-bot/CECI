@@ -1,0 +1,30 @@
+<a routerLink="/" class="volver">← Volver al inicio</a>
+
+<h1>{{ modoRegistro ? 'Crear mi cuenta' : 'Iniciar sesión' }}</h1>
+<p class="ayuda">Con tu cuenta guardas tus menús y recetas favoritas y usas el asistente con IA.</p>
+
+<form class="formulario" (ngSubmit)="enviar()">
+  <label *ngIf="modoRegistro">
+    Tu nombre
+    <input name="nombre" autocomplete="name" [(ngModel)]="nombre" />
+  </label>
+  <label>
+    Correo electrónico
+    <input type="email" name="email" autocomplete="email" required [(ngModel)]="email" />
+  </label>
+  <label>
+    Contraseña {{ modoRegistro ? '(mínimo 8 caracteres)' : '' }}
+    <input type="password" name="clave" required minlength="8"
+      [attr.autocomplete]="modoRegistro ? 'new-password' : 'current-password'" [(ngModel)]="clave" />
+  </label>
+
+  <p class="error" *ngIf="error">{{ error }}</p>
+
+  <button type="submit" [disabled]="enviando || !email || clave.length < 8">
+    {{ enviando ? 'Un momento…' : modoRegistro ? 'Crear cuenta' : 'Entrar' }}
+  </button>
+</form>
+
+<button class="enlace" type="button" (click)="modoRegistro = !modoRegistro; error = ''">
+  {{ modoRegistro ? '¿Ya tienes cuenta? Inicia sesión' : '¿No tienes cuenta? Crea una gratis' }}
+</button>

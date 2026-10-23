@@ -48,7 +48,14 @@
     <button class="secundario" (click)="generar()">🔄 Otro menú distinto</button>
     <button class="secundario" (click)="copiar()">{{ copiado ? '✅ Copiado' : '📋 Copiar todo' }}</button>
     <button class="secundario" (click)="imprimir()">🖨️ Imprimir / guardar PDF</button>
+    <button class="secundario" *ngIf="cuenta.usuario()" (click)="guardar()" [disabled]="guardado">
+      {{ guardado ? '✅ Guardado en mi cuenta' : '💾 Guardar en mi cuenta' }}
+    </button>
   </div>
+  <p class="nota" *ngIf="errorGuardar">{{ errorGuardar }}</p>
+  <p class="nota" *ngIf="!cuenta.usuario() && !cuenta.cargando()">
+    <a routerLink="/acceso">Crea una cuenta gratis</a> para guardar tus menús.
+  </p>
 
   <article class="dia" *ngFor="let d of menu.dias">
     <h3>{{ d.dia }} <small>≈ {{ d.kcalTotal }} kcal</small></h3>
