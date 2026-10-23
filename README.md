@@ -15,6 +15,10 @@ Agentes disponibles:
 - **📖 Agente de Cuentos para YouTube**: escribe el título, el personaje y la moraleja
   de tu cuento, y te genera el guion completo dividido en escenas, con una idea de
   imagen para cada una.
+- **🥗 Agente de Menú Semanal +Salud**: elige tu objetivo (bajar, mantener o ganar masa),
+  cuántas personas son y tus restricciones (vegetariano, sin lactosa, sin gluten) y te genera
+  un menú de 7 días con lista de la compra agrupada, que puedes copiar o imprimir/guardar en PDF.
+  Funciona sin IA de pago, con un banco de recetas propio. No sustituye a un nutricionista.
 
 ## Cómo probarlo en tu computadora
 

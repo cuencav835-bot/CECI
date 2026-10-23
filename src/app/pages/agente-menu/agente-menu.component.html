@@ -1,0 +1,73 @@
+<a routerLink="/" class="volver">← Volver al inicio</a>
+
+<h1>🥗 Agente de Menú Semanal +Salud</h1>
+<p class="ayuda">
+  Elige tu objetivo y te preparo un menú de 7 días con su lista de la compra,
+  lista para imprimir o enviar por WhatsApp.
+</p>
+
+<form class="formulario" (ngSubmit)="generar()">
+  <label>
+    Tu objetivo
+    <select name="objetivo" [(ngModel)]="datos.objetivo">
+      <option value="bajar">Bajar de peso</option>
+      <option value="mantener">Mantener mi peso</option>
+      <option value="subir">Ganar masa muscular</option>
+    </select>
+  </label>
+
+  <label>
+    ¿Para cuántas personas?
+    <input type="number" name="personas" min="1" max="10" [(ngModel)]="datos.personas" />
+  </label>
+
+  <fieldset>
+    <legend>Restricciones (opcional)</legend>
+    <label class="check" *ngFor="let r of restriccionesDisponibles">
+      <input type="checkbox" [checked]="datos.restricciones.includes(r.valor)" (change)="alternar(r.valor)" />
+      {{ r.etiqueta }}
+    </label>
+  </fieldset>
+
+  <label class="check">
+    <input type="checkbox" name="snack" [(ngModel)]="datos.incluirSnack" />
+    Incluir un snack al día
+  </label>
+
+  <button type="submit">Generar mi menú</button>
+</form>
+
+<section *ngIf="menu" class="resultados">
+  <h2>Tu menú de la semana</h2>
+  <p class="nota">
+    Referencia general: unas {{ menu.referenciaKcal }} kcal al día. Las calorías son aproximadas.
+    {{ menu.consejo }}
+  </p>
+
+  <div class="acciones">
+    <button class="secundario" (click)="generar()">🔄 Otro menú distinto</button>
+    <button class="secundario" (click)="copiar()">{{ copiado ? '✅ Copiado' : '📋 Copiar todo' }}</button>
+    <button class="secundario" (click)="imprimir()">🖨️ Imprimir / guardar PDF</button>
+  </div>
+
+  <article class="dia" *ngFor="let d of menu.dias">
+    <h3>{{ d.dia }} <small>≈ {{ d.kcalTotal }} kcal</small></h3>
+    <ul>
+      <li *ngFor="let c of d.comidas"><strong>{{ c.momento }}:</strong> {{ c.receta }}</li>
+    </ul>
+  </article>
+
+  <h2>🛒 Lista de la compra</h2>
+  <article class="dia" *ngFor="let g of menu.compra">
+    <h3>{{ g.categoria }}</h3>
+    <ul class="compra">
+      <li *ngFor="let it of g.items">☐ {{ it.nombre }} — {{ it.cantidad }}</li>
+    </ul>
+  </article>
+
+  <p class="aviso">
+    Este menú es una guía general de alimentación y no sustituye el consejo de un médico
+    o nutricionista. Si tienes alguna condición de salud, alergias o estás embarazada,
+    consulta a un profesional.
+  </p>
+</section>
