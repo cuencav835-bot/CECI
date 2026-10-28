@@ -1,10 +1,26 @@
 <a routerLink="/" class="volver">← Volver al inicio</a>
 
-<h1>🤖 Asistente de Nutrición con IA</h1>
+<h1>🤖 Asistente de Nutrición</h1>
 <p class="ayuda">Crea una receta con lo que tienes en casa o pregunta tus dudas de alimentación.</p>
 
-<p class="error" *ngIf="!cuenta.cargando() && !cuenta.usuario()">
-  Para usar el asistente necesitas una cuenta gratis.
+<div class="modos" role="group" aria-label="Tipo de asistente">
+  <button [class.activa]="!usaIA" (click)="cambiarModo('basico')">
+    🆓 Básico <small>gratis y sin cuenta</small>
+  </button>
+  <button [class.activa]="usaIA" (click)="cambiarModo('ia')">
+    ✨ Con IA <small>más completo · necesita cuenta</small>
+  </button>
+</div>
+
+<p class="nota modo-info" *ngIf="!usaIA">
+  Usa el banco de recetas de la app y respuestas preparadas. No cuesta nada y no tiene límite.
+</p>
+<p class="nota modo-info" *ngIf="usaIA">
+  Usa inteligencia artificial para crear recetas a tu medida y responder cualquier pregunta. Tiene un límite de consultas al día.
+</p>
+
+<p class="error" *ngIf="usaIA && !cuenta.cargando() && !cuenta.usuario()">
+  Para usar el modo con IA necesitas una cuenta gratis.
   <a routerLink="/acceso">Inicia sesión o regístrate</a>.
 </p>
 
@@ -15,8 +31,9 @@
 
 <p class="error" *ngIf="error">
   {{ error }}
-  <ng-container *ngIf="limiteAlcanzado && enlacePremium">
-    <a [href]="enlacePremium" target="_blank" rel="noopener">Consigue más consultas con Premium</a>.
+  <ng-container *ngIf="limiteAlcanzado">
+    <a *ngIf="enlacePremium" [href]="enlacePremium" target="_blank" rel="noopener">Consigue más consultas con Premium</a>
+    <a href="#" (click)="cambiarModo('basico'); $event.preventDefault()">o usa el modo básico, que es ilimitado</a>.
   </ng-container>
 </p>
 
@@ -33,41 +50,57 @@
         <input type="checkbox" [checked]="restricciones.includes(o)" (change)="alternar(o)" /> {{ o }}
       </label>
     </fieldset>
-    <button type="submit" [disabled]="ingredientes.length < 2 || cargando || !cuenta.usuario()">
-      {{ cargando ? 'Creando receta…' : 'Crear receta' }}
+    <button type="submit" [disabled]="ingredientes.length < 2 || !puedeConsultar">
+      {{ cargando ? 'Creando receta…' : usaIA ? 'Crear receta con IA' : 'Buscar recetas' }}
     </button>
   </form>
 
-  <article class="receta" *ngIf="receta">
-    <h2>{{ receta.nombre }}</h2>
+  <p class="nota" *ngIf="sinResultados">
+    No encontré una receta con esos ingredientes en el banco. Prueba a añadir ingredientes comunes
+    (arroz, huevo, tomate, cebolla…) o usa el modo
+    <a href="#" (click)="cambiarModo('ia'); $event.preventDefault()">con IA</a>.
+  </p>
+
+  <article class="receta" *ngFor="let t of recetas">
+    <h2>{{ t.receta.nombre }}</h2>
     <p class="datos">
-      {{ receta.porciones }} porciones · {{ receta.tiempoMin }} min
-      <span *ngIf="receta.kcalPorPorcion"> · ≈ {{ receta.kcalPorPorcion }} kcal por porción</span>
+      {{ t.receta.porciones }} {{ t.receta.porciones === 1 ? 'porción' : 'porciones' }} · {{ t.receta.tiempoMin }} min
+      <span *ngIf="t.receta.kcalPorPorcion"> · ≈ {{ t.receta.kcalPorPorcion }} kcal por porción</span>
     </p>
+    <p class="faltan" *ngIf="!usaIA && t.faltan.length">Te faltaría: {{ t.faltan.join(', ') }}.</p>
+    <p class="completo" *ngIf="!usaIA && !t.faltan.length">✅ Tienes todo lo principal.</p>
     <h3>Ingredientes</h3>
-    <ul><li *ngFor="let i of receta.ingredientes">{{ i }}</li></ul>
+    <ul><li *ngFor="let i of t.receta.ingredientes">{{ i }}</li></ul>
     <h3>Preparación</h3>
-    <ol><li *ngFor="let p of receta.pasos">{{ p }}</li></ol>
-    <p class="nota" *ngIf="receta.nota">{{ receta.nota }}</p>
-    <button type="button" (click)="guardarReceta()" [disabled]="guardada">
-      {{ guardada ? '✅ Guardada en favoritos' : '⭐ Guardar en favoritos' }}
+    <ol><li *ngFor="let p of t.receta.pasos">{{ p }}</li></ol>
+    <p class="nota" *ngIf="t.receta.nota">{{ t.receta.nota }}</p>
+    <button type="button" *ngIf="cuenta.usuario(); else sinCuenta" (click)="guardarReceta(t)" [disabled]="t.guardada">
+      {{ t.guardada ? '✅ Guardada en favoritos' : '⭐ Guardar en favoritos' }}
     </button>
+    <ng-template #sinCuenta>
+      <p class="nota"><a routerLink="/acceso">Crea una cuenta gratis</a> para guardar tus recetas favoritas.</p>
+    </ng-template>
   </article>
 </section>
 
 <section *ngIf="pestana === 'chat'">
   <div class="chat">
-    <p class="nota" *ngIf="!mensajes.length">Pregunta, por ejemplo: «¿Qué puedo cenar ligero?»</p>
+    <ng-container *ngIf="!mensajes.length">
+      <p class="nota">Pregunta lo que quieras o toca una sugerencia:</p>
+      <div class="chips">
+        <button type="button" class="chip" *ngFor="let s of sugerencias" (click)="preguntar(s)" [disabled]="!puedeConsultar">{{ s }}</button>
+      </div>
+    </ng-container>
     <div class="burbuja" *ngFor="let m of mensajes" [class.mia]="m.rol === 'user'">{{ m.texto }}</div>
     <div class="burbuja" *ngIf="cargando">Escribiendo…</div>
   </div>
   <form class="enviar" (ngSubmit)="preguntar()">
     <input name="pregunta" maxlength="500" [(ngModel)]="pregunta" placeholder="Escribe tu pregunta" />
-    <button type="submit" [disabled]="!pregunta.trim() || cargando || !cuenta.usuario()">Enviar</button>
+    <button type="submit" [disabled]="!pregunta.trim() || !puedeConsultar">Enviar</button>
   </form>
 </section>
 
-<p class="nota" *ngIf="cuenta.usuario() as u">Consultas con IA que te quedan hoy: {{ u.consultasRestantes }}</p>
+<p class="nota" *ngIf="usaIA && cuenta.usuario() as u">Consultas con IA que te quedan hoy: {{ u.consultasRestantes }}</p>
 <p class="aviso">
   Información general de alimentación; no sustituye el consejo de un médico o nutricionista.
   Las calorías son aproximadas.
