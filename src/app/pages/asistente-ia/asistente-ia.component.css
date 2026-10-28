@@ -22,3 +22,15 @@ textarea, input[name='pregunta'] { font: inherit; padding: 0.6rem 0.75rem; borde
 .enviar { display: flex; gap: 0.5rem; }
 .enviar input { flex: 1; }
 .aviso { margin-top: 1.5rem; font-size: 0.85rem; color: #6b7280; line-height: 1.5; }
+
+.modos { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 1rem 0 0.5rem; }
+.modos button { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; background: #e5e7eb; color: #111827; }
+.modos button small { font-weight: 500; font-size: 0.75rem; opacity: 0.8; }
+.modos button.activa { background: #2563eb; color: #fff; }
+.modo-info { margin-top: 0; }
+.faltan { color: #b45309; margin: 0.25rem 0; }
+.completo { color: #166534; margin: 0.25rem 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chip { background: #eff6ff; color: #1d4ed8; font-weight: 500; border: 1px solid #bfdbfe; }
+.error a { font-weight: 600; margin-right: 0.25rem; }
+@media (max-width: 767px) { .modos { grid-template-columns: 1fr; } }

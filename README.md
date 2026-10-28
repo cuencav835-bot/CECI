@@ -19,9 +19,12 @@ Agentes disponibles:
   cuántas personas son y tus restricciones (vegetariano, sin lactosa, sin gluten) y te genera
   un menú de 7 días con lista de la compra agrupada, que puedes copiar o imprimir/guardar en PDF.
   Funciona sin IA de pago, con un banco de recetas propio. No sustituye a un nutricionista.
-- **🤖 Asistente de Nutrición con IA**: receta con los ingredientes que tengas y chat nutricional.
-  A diferencia de los otros agentes, este SÍ usa una IA de pago (Claude) y corre en una función
-  del servidor (`netlify/functions/api.mjs`), nunca en el navegador, para no exponer la clave.
+- **🤖 Asistente de Nutrición**: receta con los ingredientes que tengas y chat nutricional, en dos modos:
+  - **Básico (gratis, sin cuenta, sin límite):** busca en un banco de ~30 recetas incluido en la app (entiende
+    plurales y nombres de cada país, y respeta vegetariano / sin lactosa / sin gluten) y responde preguntas
+    frecuentes con consejos generales. Funciona en el navegador, no gasta IA ni dinero.
+  - **Con IA (necesita cuenta, con límite diario):** usa Claude desde una función del servidor
+    (`netlify/functions/api.mjs`), nunca desde el navegador, para no exponer la clave. Esto sí cuesta dinero por consulta.
 - **👤 Cuentas**: registro e inicio de sesión, perfil (objetivo, personas, restricciones), recetas
   favoritas y menús guardados. Los datos se guardan en Netlify Blobs.
 
@@ -62,7 +65,8 @@ visitada, abre también sin conexión; la IA y las cuentas sí necesitan interne
 
 ### Pruebas
 
-`npm run test:api` (lógica del servidor: cuentas, límites, IA simulada, Hotmart).
+`npm run test:api` (lógica del servidor: cuentas, límites, IA simulada, Hotmart) y
+`npm run test:asistente` (buscador de recetas y chat del modo básico).
 
 ## Cómo probarlo en tu computadora
 
