@@ -6,7 +6,7 @@ Público: 7-12 años · Duración: ≈18 min · Marcar en YouTube como "hecho pa
 1. Escena 1: la Luna de "ayer" pasa a ser "la semana pasada" (de luna llena a luna nueva pasan unos 14 días).
 2. Canción: el verso nombra ahora los 8 planetas.
 3. Se eliminan los "cuéntalo en comentarios" (en vídeos para niños los comentarios están desactivados). Se sustituyen por "díselo a tus papás" o "dilo en voz alta".
-4. Pendiente de tu decisión: Leo tiene 6 años y el público es de 7 a 12. Se sugiere 9 años; cambia la edad en el BLOQUE VISUAL si lo aceptas.
+4. Decidido: Leo se queda con 6 años (aunque el público sea de 7 a 12).
 
 ## BLOQUE VISUAL (copiar al inicio de cada prompt de imagen)
 Estilo: animación 3D estilo Pixar, colores vivos, iluminación suave y alegre. Leo: niño de unos 6 años, piel morena clara, pelo negro rizado, ojos grandes marrones, pecas en las mejillas, sonrisa grande. Lleva un sombrero de explorador color caqui con banda marrón, una camisa verde oliva de explorador con bolsillos, pantalón corto caqui, cinturón marrón con una brújula dorada, mochila marrón y botas marrones. Nina: conejita blanca y esponjosa, orejas largas con el interior rosado, ojos grandes marrones, nariz rosada y un moño rosa en el cuello. Coco: monito marrón con la cara y la pancita color crema, ojos grandes, sonrisa traviesa y un collar de hojas verdes. Lola: guacamaya roja con el pecho amarillo-naranja, alas rojas, azules y amarillas, cara blanca, pico gris oscuro y pestañas largas. Tito: tortuga verde claro con caparazón marrón, ojos grandes, mejillas rosadas y sonrisa tranquila.
